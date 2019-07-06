@@ -1,14 +1,14 @@
 import React from 'react'
 import CalorieCounter from './CalorieCounter'
 import WaterCounter from './WaterCounter'
-import NewDayButton from './NewDayButton'
+import NewDayTimer from './NewDayTimer'
 
 const Food = props => {
   return (
     <div>
-      <CalorieCounter />
+      <CalorieCounter dispatch={props.dispatch} data={props.data}/>
       <WaterCounter dispatch={props.dispatch} data={props.data}/>
-      <NewDayButton />
+      <NewDayTimer  />
     </div>
   )
 }

@@ -2,21 +2,37 @@ import React from 'react'
 import { CounterBox, CounterButton } from './Counters'
 
 const WaterCounter = props => {
-  function handleChange (event) {
-    event.target.value.length > 0 &&
-    event.target.value >= 0 &&
-    !isNaN(event.target.value) &&
+  function dispatchIncrement(event) {
+    props.dispatch({
+      type: 'changeWaterAdd',
+      count: props.data.waterAdd
+        + parseInt(event.target.getAttribute('step'), 10)
+    })
+  }
+  function dispatchValue(event) {
     props.dispatch({
       type: 'changeWaterAdd',
       count: parseInt(event.target.value, 10)
     })
   }
+  function handleLogEdit() {
+    props.dispatch({type: 'addWaterAddToWater'})
+  }
   return (
     <div>
       <h3>Goal: {props.data.waterGoal}ml</h3>
       <h3>Drank: {props.data.water}ml</h3>
-      <CounterBox units='ml' handleChange={handleChange} counterValue={props.data.waterAdd} step={50}/>
-      <CounterButton />
+      <CounterBox
+        units='ml'
+        handleChange={dispatchValue}
+        counterValue={props.data.waterAdd}
+      />
+      <CounterButton
+        format='add send subtract'
+        handleChange={dispatchIncrement}
+        handleLogEdit={handleLogEdit}
+        step={50}
+      />
     </div>
   )
 }

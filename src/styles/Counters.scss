@@ -1,7 +1,22 @@
 @import '/master';
 
-.counterBox {
+.button {
+  margin: 5px;
+}
+
+.buttonIcon {
+  pointer-events: none;
+}
+
+.buttonContainer {
   display: flex;
-  flex-direction: row-reverse;
-  font-size: 2rem;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.counterBox {
+  input {
+    background-color: red;
+  }
 }

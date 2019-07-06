@@ -1,9 +1,9 @@
 import React from 'react'
 
-const NewDayButton = props => {
+const NewDayTimer = props => {
   return (
     <div></div>
   )
 }
 
-export default NewDayButton
+export default NewDayTimer

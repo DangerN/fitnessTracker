@@ -1,26 +1,29 @@
 import React from 'react'
 import '../styles/Counters.scss'
+import { BUTTON } from '../constants'
 
 function CounterBox (props) {
-  function handleChange(event) {
-      isNaN(event.target.value) &&
-      props.handleChange(event)
-  }
   return (
-    <div>
+    <div className='counterBox'>
       <input
-        type='text'
-        // pattern='[0-9]*'
+        type='number'
         value={props.counterValue}
-        onChange={handleChange}
+        onChange={props.handleChange}
       />
     </div>
   )
 }
-
+//Required props: format, handleChange, handleLogEdit, step
 const CounterButton = props => {
+  function generateButton() {
+    return props.format.split(' ').map(segment => {
+      return BUTTON[segment](props.handleChange, props.handleLogEdit, props.step)
+    })
+  }
   return (
-    <div>CounterButton</div>
+    <div className='buttonContainer'>
+      {generateButton()}
+    </div>
   )
 }
 
