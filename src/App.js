@@ -11,7 +11,7 @@ function App() {
   const [state, dispatch] = useAppState()
   return (
     <div className="App">
-      <UserAccountModal/>
+      <UserAccountModal dispatch={dispatch} accountModalVisible={state.accountModalVisible}/>
       <NavBar navOpen={state.navOpen} dispatch={dispatch}/>
       <InfoBar />
       <Display dispatch={dispatch} state={state}/>

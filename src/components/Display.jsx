@@ -1,13 +1,11 @@
 import React from 'react'
 import '../styles/Display.scss'
-// import useAppState from '../useAppState'
 import Home from './Home'
 import Exercise from './Exercise'
 import Food from './Food'
 import Record from './Record'
 
 const Display = props => {
-  // const [state, dispatch] = useAppState()
   const displayClasses = navOpen => {
     return navOpen ? 'display navOpen' : 'display'
   }

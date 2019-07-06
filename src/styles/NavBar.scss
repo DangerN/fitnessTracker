@@ -8,7 +8,7 @@
   position: fixed;
   width: 100%;
   height: $navHeight;
-  margin-top: -$navHeight;
+  top: -$navHeight;
   opacity: 1;
   animation: listNavClosed;
   animation-duration: $navAnimationTiming;
@@ -32,6 +32,7 @@
   left: 0;
   right: 0;
   margin: auto;
+
   font-size: 3.4rem;
   animation: iconNavClosed;
   animation-duration: $navAnimationTiming;
@@ -84,18 +85,25 @@
 
 @keyframes listNavOpen {
   0% {
-    margin-top: -$navHeight;
+    top: -$navHeight;
   }
   100% {
-    margin-top: 0rem;
+    top: 0rem;
   }
 }
 
 @keyframes listNavClosed {
   0% {
-    margin-top: 0rem;
+    top: 0rem;
   }
   100% {
-    margin-top: -$navHeight;
+    top: -$navHeight;
   }
+}
+
+@media screen and (max-width: 600px) {
+  // .icon {
+  //   height: 2rem;
+  //   width: 2rem;
+  // }
 }

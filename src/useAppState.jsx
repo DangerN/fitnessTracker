@@ -4,8 +4,7 @@ function useAppState() {
   const initialState = {
     accountModalVisible: true,
     navOpen: false,
-    displayRoute: 'food',
-    counters: {},
+    displayRoute: 'exercise',
     foodData: {
       water: 0,
       calories: 0,

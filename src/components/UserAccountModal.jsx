@@ -1,15 +1,14 @@
 import React from 'react'
 import '../styles/UserAccountModal.scss'
-import useAppState from '../useAppState'
 
 const UserAccountModal = props => {
-  const [state, dispatch] = useAppState()
   const modalClasses = displayStatus => {
     return displayStatus ? 'accountModal' : 'accountModal noDisplay'
   }
+  // setTimeout(_=>props.dispatch({type: 'toggleAccountModal'}), 400)
   return <div
-    className={modalClasses(state.accountModalVisible)}
-    onClick={_=>dispatch({type: 'toggleAccountModal'})}
+    className={modalClasses(props.accountModalVisible)}
+    onClick={_=>props.dispatch({type: 'toggleAccountModal'})}
   />
 }
 

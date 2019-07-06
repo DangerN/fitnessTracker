@@ -1,0 +1,28 @@
+@import '/master';
+
+.workoutBox {
+  background: white;
+  width: 85%;
+  height: 85%;
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: 3fr 3fr 2fr;
+  grid-template-rows: 4rem repeat(3, 1fr);
+}
+.startButton {
+  grid-area: 1 / 1 / 2 / 2;
+  place-self: center center;
+}
+ .saveButton {
+  grid-area:  1 / 2 / 2 / 3;
+  place-self: center center;
+  text-align: center;
+ }
+
+ @media screen and (max-width: 600px) {
+   .workoutBox {
+     width: 100%;
+     height: 100%;
+     grid-template-columns: 1fr 1fr;
+   }
+ }

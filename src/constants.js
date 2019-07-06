@@ -1,11 +1,9 @@
 import React from 'react'
 import { FaCheck, FaPlus, FaMinus } from 'react-icons/fa'
 
-
 export const ICON = {
   size: {nav: '50', button: '25'}
 }
-
 export const BUTTON = {
   add: function(handleChange, handleLogEdit, step=5){
     return (
@@ -29,5 +27,13 @@ export const BUTTON = {
       step={-step}
       onClick={handleChange}><FaMinus size={ICON.size.button} className='buttonIcon' /></div>
     )
+  }
+}
+export const WORKOUT_LABELS = {
+  startButton: function(active) {
+    return active ? 'End Workout' : 'New Workout'
+  },
+  saveButton: function(active) {
+    return active ? 'Save Workout' : 'Load Saved Workout'
   }
 }
