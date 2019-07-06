@@ -6,14 +6,15 @@ import Display from './components/Display'
 import UserAccountModal from './components/UserAccountModal'
 import './App.css'
 
+
 function App() {
-  const [ state, actions ] = useAppState()
+  const [state, dispatch] = useAppState()
   return (
     <div className="App">
-      <UserAccountModal state={state} actions={actions} />
-      <NavBar state={state} actions={actions} />
+      <UserAccountModal/>
+      <NavBar navOpen={state.navOpen} dispatch={dispatch}/>
       <InfoBar />
-      <Display state={state} actions={actions} />
+      <Display dispatch={dispatch} state={state}/>
     </div>
   )
 }

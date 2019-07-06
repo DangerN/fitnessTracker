@@ -7,7 +7,7 @@ const Food = props => {
   return (
     <div>
       <CalorieCounter />
-      <WaterCounter />
+      <WaterCounter dispatch={props.dispatch} data={props.data}/>
       <NewDayButton />
     </div>
   )

@@ -1,13 +1,15 @@
 import React from 'react'
 import '../styles/UserAccountModal.scss'
+import useAppState from '../useAppState'
 
 const UserAccountModal = props => {
+  const [state, dispatch] = useAppState()
   const modalClasses = displayStatus => {
     return displayStatus ? 'accountModal' : 'accountModal noDisplay'
   }
   return <div
-    className={modalClasses(props.state.accountModalVisible)}
-    onClick={props.actions.hideAccountModal}
+    className={modalClasses(state.accountModalVisible)}
+    onClick={_=>dispatch({type: 'toggleAccountModal'})}
   />
 }
 

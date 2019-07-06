@@ -1,17 +1,19 @@
 import React from 'react'
 import '../styles/Display.scss'
+// import useAppState from '../useAppState'
 import Home from './Home'
 import Exercise from './Exercise'
 import Food from './Food'
 import Record from './Record'
 
 const Display = props => {
-  const displayClasses = state => {
-    return state ? 'display navOpen' : 'display'
+  // const [state, dispatch] = useAppState()
+  const displayClasses = navOpen => {
+    return navOpen ? 'display navOpen' : 'display'
   }
   const displayDisplay = {
     home: <Home />,
-    food: <Food />,
+    food: <Food dispatch={props.dispatch} data={props.state.foodData}/>,
     exercise: <Exercise />,
     record: <Record />
   }
