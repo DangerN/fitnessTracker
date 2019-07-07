@@ -1,4 +1,5 @@
-import { useReducer } from 'react'
+import { useReducer, useEffect } from 'react'
+import { TEST_DATA } from './testData'
 
 function useAppState() {
   const initialState = {
@@ -12,8 +13,21 @@ function useAppState() {
       caloriesGoal: 1500,
       waterAdd: 0,
       caloriesAdd: 0
+    },
+    exerciseData: {
+      exercises: TEST_DATA.exercises,
+      currentSet: null,
+      currentExercise: null,
+      currentWorkout: null,
+      pastSets: null,
+      pastExercises: null,
+      pastWorkouts: null
     }
   }
+  const [state, dispatch] = useReducer(reducer, initialState)
+  useEffect(_=>{
+    console.log(state.exerciseData.currentExercise);
+  },[state.exerciseData.currentExercise])
   function reducer (state, action) {
     switch (action.type) {
       case 'toggleNav':
@@ -38,11 +52,12 @@ function useAppState() {
           caloriesAdd: 0,
           calories: state.foodData.calories + state.foodData.caloriesAdd
         }}
+      case 'selectNewExercise':
+        return {...state, exerciseData: {...state.exerciseData, currentExercise: action.exercise }}
       default:
         throw new Error()
     }
   }
-  const [state, dispatch] = useReducer(reducer, initialState)
   return [state, dispatch]
 }
 

@@ -1,0 +1,88 @@
+@import '/master';
+
+#addExercise {
+  height: auto;
+  // width: ;
+  grid-area: 1 / 1 / 2 / 2;
+  text-align: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+#addExercise.open {
+  .catagory {
+    height: auto;
+    margin: 5px;
+    padding: 5px;
+    font-size: 1rem;
+    box-shadow: inset 0px 0px 5px lightgrey;
+    border-radius: 3px;
+    animation: catagoryOpen 2s;
+    animation-fill-mode: forwards;
+  }
+}
+
+.selectionBox {
+  height: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background: grey;
+  // border: solid 3px;
+}
+
+.exercise {
+  height: 0;
+  width: 95%;
+  font-size: 0;
+  transition: all .5s ease-in;
+}
+
+.catagory {
+  height: 0;
+  width: 95%;
+  font-size: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  overflow: scroll;
+  animation: catagoryClosed 2s;
+  animation-fill-mode: forwards;
+}
+
+.catagory.open {
+  .exercise {
+    height: auto;
+    padding: 5px;
+    margin: 5px;
+    border: solid 1px;
+    font-size: 1rem;
+    z-index: 30;
+  }
+}
+
+@keyframes catagoryClosed {
+  0% {
+    height: auto;
+    font-size: 1rem;
+  }
+  100% {
+    height: 0rem;
+    font-size: 0rem;
+  }
+}
+
+@keyframes catagoryOpen {
+  0% {
+    height: 0rem;
+    font-size: 0rem;
+  }
+  100% {
+    height: auto;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+}

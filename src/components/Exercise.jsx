@@ -4,6 +4,7 @@ import { WORKOUT_LABELS } from '../constants'
 import WorkoutList from './WorkoutList'
 
 const Exercise = props => {
+  // const [ data, dispatch ] = props
   const [ state, setState ] = useState({
     workoutActive: false,
   })
@@ -25,7 +26,7 @@ const Exercise = props => {
         onClick={toggleWorkout}>
           {handleButtonText('saveButton')}
       </div>
-      <WorkoutList />
+      <WorkoutList {...props}/>
     </div>
   )
 }
