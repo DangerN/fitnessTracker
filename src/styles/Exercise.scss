@@ -2,11 +2,12 @@
 
 .workoutBox {
   background: white;
-  width: 85%;
-  height: 85%;
+  width: 90%;
+  height: 90%;
+  border-radius: 3px;
   overflow: scroll;
   display: grid;
-  grid-template-columns: 3fr 3fr 2fr;
+  grid-template-columns: 3fr 3fr 3fr;
   grid-template-rows: 4rem repeat(3, 1fr);
 }
 .startButton {

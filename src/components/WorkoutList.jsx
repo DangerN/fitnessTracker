@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import '../styles/WorkoutList.scss'
 import AddExercise from './AddExercise'
+import CurrentWorkout from './CurrentWorkout'
 
 const WorkoutList = props => {
   const { data, dispatch } = props
@@ -22,8 +23,14 @@ const WorkoutList = props => {
       ...state.catagory, [catagory]: !state.catagory[catagory]
     }})
   }
-  return (
-    <div id='workoutList'>
+  // function renderCurrentWorkout() {
+  //   console.log(!!data.currentWorkout, data.currentWorkout);
+  //   return <CurrentWorkout data={data} dispatch={dispatch} />
+  // }
+  function renderWorkoutList() {
+    return !!data.currentWorkout &&
+    (
+      <>
       <AddExercise
         data={data.exercises}
         state={state}
@@ -31,6 +38,13 @@ const WorkoutList = props => {
         dispatch={dispatch}
         toggleCatagoryList={toggleCatagoryList}
       />
+      <CurrentWorkout data={data} dispatch={dispatch} />
+      </>
+    )
+  }
+  return (
+    <div id='workoutList'>
+      {renderWorkoutList()}
     </div>
   )
 }

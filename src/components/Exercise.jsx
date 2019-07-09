@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../styles/Exercise.scss'
 import { WORKOUT_LABELS } from '../constants'
 import WorkoutList from './WorkoutList'
 
 const Exercise = props => {
-  // const [ data, dispatch ] = props
-  const [ state, setState ] = useState({
-    workoutActive: false,
-  })
   function handleButtonText(button) {
-    return WORKOUT_LABELS[button](state.workoutActive)
+    return WORKOUT_LABELS[button](props.data.currentWorkout)
   }
   function toggleWorkout() {
-    setState({workoutActive: !state.workoutActive})
+    props.data.currentWorkout
+      ? props.dispatch({type: 'endWorkout'})
+      : props.dispatch({type: 'newWorkout'})
   }
   return (
     <div className='workoutBox'>

@@ -6,6 +6,7 @@ function CounterBox (props) {
   return (
     <div className='counterBox'>
       <input
+        className='counterInput'
         type='number'
         value={props.counterValue}
         onChange={props.handleChange}

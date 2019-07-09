@@ -52,6 +52,8 @@ function useAppState() {
           caloriesAdd: 0,
           calories: state.foodData.calories + state.foodData.caloriesAdd
         }}
+      case 'newWorkout':
+        return {...state, exerciseData: {...state.exerciseData, currentWorkout: {}}}
       case 'selectNewExercise':
         return {...state, exerciseData: {...state.exerciseData, currentExercise: action.exercise }}
       default:
