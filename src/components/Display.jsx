@@ -6,19 +6,20 @@ import Food from './Food'
 import Record from './Record'
 
 const Display = props => {
-  const {state, dispatch} = props
-  const displayClasses = navOpen => {
-    return navOpen ? 'display navOpen' : 'display'
+  const displayNav = _ => {
+    return props.navOpen ? 'display navOpen' : 'display'
   }
-  const displayDisplay = {
-    home: <Home />,
-    food: <Food dispatch={dispatch} data={state.foodData}/>,
-    exercise: <Exercise dispatch={dispatch} data={state.exerciseData}/>,
-    record: <Record />
+
+  const displayClasses = componentName => {
+    const route = props.displayRoute
+    return route === componentName ? componentName + 'showing' : componentName
   }
   return <div
-      className={displayClasses(props.state.navOpen)}>
-      {displayDisplay[props.state.displayRoute]}
+      className={displayNav()}>
+      <Home className={displayClasses('home')}/>
+      <Food className={displayClasses('food')} dispatch={props.dispatch} data={props.state.foodData}/>
+      <Exercise className={displayClasses('exercise')} dispatch={props.dispatch} data={props.state.exerciseData}/>
+      <Record className={displayClasses('record')}/>
     </div>
 }
 export default Display
