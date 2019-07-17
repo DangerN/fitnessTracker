@@ -15,7 +15,7 @@ const AddExercise = (props) => {
   function showExercises(catagory) {
     return props.data[catagory].map(exercise=>{
       return <li
-        className='exercise'
+        className='exerciseName'
         onClick={_=>{
           props.dispatch({type: 'selectNewExercise', exercise: exercise})
           props.toggleAddList()

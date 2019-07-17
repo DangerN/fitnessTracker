@@ -4,41 +4,37 @@ import AddExercise from './AddExercise'
 import CurrentWorkout from './CurrentWorkout'
 
 const WorkoutList = props => {
-  const { data, dispatch } = props
+  const { state, dispatch } = props
   const initialState = {
     open: false,
-    catagory: Object.keys(data.exercises).map(catagory=>{
+    catagory: Object.keys(state.exerciseData.exercises).map(catagory=>{
       return {[catagory]: false}
     }).reduce((newObject, catagory)=>{
       newObject[Object.keys(catagory)[0]] = Object.values(catagory)[0]
       return newObject
     })
   }
-  const [ state, setState ] = useState(initialState)
+  const [ listState, setListState ] = useState(initialState)
   function toggleAddList() {
-    setState({...state, open: !state.open})
+    setListState({...listState, open: !listState.open})
   }
   function toggleCatagoryList(catagory) {
-    setState({...state, catagory: {
-      ...state.catagory, [catagory]: !state.catagory[catagory]
+    setListState({...listState, catagory: {
+      ...listState.catagory, [catagory]: !listState.catagory[catagory]
     }})
   }
-  // function renderCurrentWorkout() {
-  //   console.log(!!data.currentWorkout, data.currentWorkout);
-  //   return <CurrentWorkout data={data} dispatch={dispatch} />
-  // }
   function renderWorkoutList() {
-    return !!data.currentWorkout &&
+    return !!state.exerciseData.currentWorkout &&
     (
       <>
       <AddExercise
-        data={data.exercises}
-        state={state}
+        data={state.exerciseData.exercises}
+        state={listState}
         toggleAddList={toggleAddList}
         dispatch={dispatch}
         toggleCatagoryList={toggleCatagoryList}
       />
-      <CurrentWorkout data={data} dispatch={dispatch} />
+      <CurrentWorkout data={state.exerciseData} dispatch={dispatch} />
       </>
     )
   }

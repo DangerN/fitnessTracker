@@ -1,19 +1,21 @@
 import React from 'react'
 import '../styles/Exercise.scss'
-import { WORKOUT_LABELS } from '../constants'
+import { WORKOUT_LABELS, SIMPLECLASS } from '../constants'
 import WorkoutList from './WorkoutList'
 
 const Exercise = props => {
+  const {state, dispatch} = props
   function handleButtonText(button) {
-    return WORKOUT_LABELS[button](props.data.currentWorkout)
+    console.log(WORKOUT_LABELS[button](state.exerciseData.currentWorkout));
+    return WORKOUT_LABELS[button](state.exerciseData.currentWorkout)
   }
   function toggleWorkout() {
-    props.data.currentWorkout
-      ? props.dispatch({type: 'endWorkout'})
-      : props.dispatch({type: 'newWorkout'})
+    state.exerciseData.currentWorkout
+      ? dispatch({type: 'endWorkout'})
+      : dispatch({type: 'newWorkout'})
   }
   return (
-    <div className='workoutBox'>
+    <div className={SIMPLECLASS.visible('exercise', state.displayRoute)}>
       <div
         className='startButton'
         onClick={toggleWorkout}>

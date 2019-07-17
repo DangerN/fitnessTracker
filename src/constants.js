@@ -37,3 +37,9 @@ export const WORKOUT_LABELS = {
     return active ? 'Save Workout' : 'Load Saved Workout'
   }
 }
+
+export const SIMPLECLASS = {
+  visible: (self, route) => {
+    return self === route ? self + ' showing' : self
+  }
+}

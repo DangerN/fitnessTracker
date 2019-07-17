@@ -1,8 +1,12 @@
 import React from 'react'
+import { SIMPLECLASS } from '../constants'
 
 const Record = props => {
+  const {state, dispatch} = props
   return (
-    <div>record</div>
+    <div className={SIMPLECLASS.visible('record', state.displayRoute)}>
+      record
+    </div>
   )
 }
 

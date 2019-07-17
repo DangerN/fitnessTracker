@@ -12,6 +12,38 @@
   flex-flow: wrap;
   align-items: center;
   justify-content: space-around;
+  div {
+    background: orange;
+    height: $displayChildHeight;
+    width: $displayChildWidth;
+    position: absolute;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    animation: hideRoute $displayAnimationTiming;
+    animation-fill-mode: forwards;
+  }
+  div.showing {
+    animation: showRoute $displayAnimationTiming;
+    animation-fill-mode: forwards;
+  }
+}
+@keyframes showRoute {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hideRoute {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .display.navOpen {

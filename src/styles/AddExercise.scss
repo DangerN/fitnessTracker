@@ -2,7 +2,6 @@
 
 #addExercise {
   height: auto;
-  // width: ;
   grid-area: 1 / 1 / 2 / 2;
   text-align: center;
   justify-content: center;
@@ -31,7 +30,7 @@
   // border: solid 3px;
 }
 
-.exercise {
+.exerciseName {
   height: 0;
   width: 95%;
   font-size: 0;
@@ -51,7 +50,7 @@
 }
 
 .catagory.open {
-  .exercise {
+  .exerciseName {
     height: auto;
     padding: 5px;
     margin: 5px;

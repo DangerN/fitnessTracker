@@ -7,19 +7,14 @@ import Record from './Record'
 
 const Display = props => {
   const displayNav = _ => {
-    return props.navOpen ? 'display navOpen' : 'display'
-  }
-
-  const displayClasses = componentName => {
-    const route = props.displayRoute
-    return route === componentName ? componentName + 'showing' : componentName
+    return props.state.navOpen ? 'display navOpen' : 'display'
   }
   return <div
       className={displayNav()}>
-      <Home className={displayClasses('home')}/>
-      <Food className={displayClasses('food')} dispatch={props.dispatch} data={props.state.foodData}/>
-      <Exercise className={displayClasses('exercise')} dispatch={props.dispatch} data={props.state.exerciseData}/>
-      <Record className={displayClasses('record')}/>
+      <Home {...props}/>
+      <Food {...props}/>
+      <Exercise {...props}/>
+      <Record {...props}/>
     </div>
 }
 export default Display
