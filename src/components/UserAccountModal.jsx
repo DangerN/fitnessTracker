@@ -1,18 +1,23 @@
 import React from 'react'
 import { FaCircleNotch } from 'react-icons/fa'
+import { LoadingWheel } from './LoadingWheel'
 import '../styles/UserAccountModal.scss'
 
 const UserAccountModal = props => {
   const modalClasses = displayStatus => {
     return displayStatus ? 'accountModal' : 'accountModal noDisplay'
   }
-  // setTimeout(_=>props.dispatch({type: 'toggleAccountModal'}), 400)
+  const handleClick = event => {
+    console.log(event);
+    props.dispatch({type: 'toggleAccountModal'})
+  }
+
   return (
-    <div
-      className={modalClasses(props.accountModalVisible)}
-      onClick={_=>props.dispatch({type: 'toggleAccountModal'})}
-    >
-    <FaCircleNotch size={50} className='loading' />
+    <div className={modalClasses(props.accountModalVisible)} onClick={handleClick}>
+      <FaCircleNotch size={50} className='loading' />
+      <FaCircleNotch size={60} className='loading' />
+      <FaCircleNotch size={70} className='loading' />
+      <LoadingWheel />
     </div>
   )
 

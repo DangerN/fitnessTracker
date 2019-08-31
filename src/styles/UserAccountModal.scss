@@ -19,8 +19,13 @@
 }
 
 .loading {
+  position: absolute;
   z-index: 501;
   animation: spinSVG 1s infinite linear;
+}
+
+.loading.hide {
+  opacity: 0;
 }
 
 @keyframes spinSVG {

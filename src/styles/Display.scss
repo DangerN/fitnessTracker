@@ -12,19 +12,19 @@
   flex-flow: wrap;
   align-items: center;
   justify-content: space-around;
-  div {
+  > div {
     background: orange;
     height: $displayChildHeight;
     width: $displayChildWidth;
     position: absolute;
     display: flex;
     flex-flow: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     animation: hideRoute $displayAnimationTiming;
     animation-fill-mode: forwards;
   }
-  div.showing {
+  > div.showing {
     animation: showRoute $displayAnimationTiming;
     animation-fill-mode: forwards;
   }
